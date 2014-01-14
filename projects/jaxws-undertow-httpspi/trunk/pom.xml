@@ -3,7 +3,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <name>JBoss JDK6 httpserver to JAXWS 2.2 HTTP SPI bridge</name>
+  <name>Undertow to JAXWS 2.2 HTTP SPI bridge</name>
   <groupId>org.jboss.ws.projects</groupId>
   <artifactId>jaxws-undertow-httpspi</artifactId>
   <packaging>jar</packaging>
@@ -21,15 +21,15 @@
   <parent>
     <groupId>org.jboss.ws</groupId>
     <artifactId>jbossws-parent</artifactId>
-    <version>1.0.9.GA</version>
+    <version>1.0.10.GA</version>
   </parent>
   
   <!-- Properties -->
   <properties>
-    <jaxws.version>1.0.0.Beta1</jaxws.version>
+    <jaxws.version>2.0.2.Final</jaxws.version>
     <junit.version>4.8.1</junit.version>
-    <cxf.version>2.3.0</cxf.version>
-    <servlet-api.version>1.0.0.Beta2</servlet-api.version>
+    <cxf.version>2.7.8</cxf.version>
+    <servlet-api.version>1.0.2.Final</servlet-api.version>
     <io.undertow.version>1.0.0.Beta30</io.undertow.version>
   </properties>
 
