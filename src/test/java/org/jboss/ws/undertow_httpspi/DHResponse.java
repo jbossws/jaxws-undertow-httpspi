@@ -16,21 +16,30 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.ws.httpserver_httpspi;
+package org.jboss.ws.undertow_httpspi;
 
-import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
+import javax.activation.DataHandler;
+import javax.xml.bind.annotation.XmlMimeType;
+import javax.xml.bind.annotation.XmlType;
 
-@WebService(targetNamespace = "http://org.apache.cxf/jaxws/endpoint/")
-@SOAPBinding(style = SOAPBinding.Style.RPC)
-public interface EndpointInterface {
+@XmlType(name = "dataResponse", namespace = "http://org.apache.cxf/jaxws/endpoint/")
+public class DHResponse {
 
-    String echo(String input);
+    private DataHandler dataHandler;
 
-    int getCount();
+    public DHResponse() {
+    }
 
-    void getException();
+    public DHResponse(DataHandler dataHandler) {
+        this.dataHandler = dataHandler;
+    }
 
-    DHResponse echoDataHandler(DHRequest request);
+    @XmlMimeType("text/plain")
+    public DataHandler getDataHandler() {
+        return dataHandler;
+    }
 
+    public void setDataHandler(DataHandler dataHandler) {
+        this.dataHandler = dataHandler;
+    }
 }
