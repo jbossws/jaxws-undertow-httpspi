@@ -19,51 +19,57 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.ws.httpserver_httpspi;
+package org.jboss.ws.undertow_httpspi;
 
-import io.undertow.Undertow;
-import io.undertow.Undertow.Builder;
-import io.undertow.server.handlers.BlockingHandler;
 import io.undertow.server.handlers.PathHandler;
+
+import java.util.Set;
+
+import javax.xml.ws.spi.http.HttpContext;
+import javax.xml.ws.spi.http.HttpHandler;
 
 /**
  * @author <a href="mailto:ema@redhat.com">Jim Ma</a>
  *
  */
-public class UndertowServer
+//TODO:Look at HttpHandlerImpl - avoid to create duplicate UndertowHttpContext to publish endpoint
+public class UndertowHttpContext extends HttpContext
 {
-   private Builder builder;
+   private String handlerpath;
    private PathHandler pathHandler;
-   private Undertow undertow;
+   private String path;
 
-   public UndertowServer(int port, String host)
+   public UndertowHttpContext(PathHandler pathHandler, String contextPath, String path)
    {
-      builder = Undertow.builder().addListener(port, host);
-      pathHandler = new PathHandler();
+      this.pathHandler = pathHandler;
+      this.path = path;
+      this.handlerpath = contextPath + path;
    }
 
-   public Builder getBuilder()
+   @Override
+   public void setHandler(HttpHandler handler)
    {
-      return builder;
+      pathHandler.addExactPath(handlerpath, new UndertowHttpHandler(handler));
    }
 
-   public PathHandler getPathHandler()
+   @Override
+   public String getPath()
    {
-      return pathHandler;
+      return this.path;
    }
 
-   public void start()
+   @Override
+   public Object getAttribute(String name)
    {
-      undertow = builder.setHandler(new BlockingHandler(pathHandler)).build();
-      undertow.start();
+      // TODO 
+      return null;
    }
 
-   public void stop()
+   @Override
+   public Set<String> getAttributeNames()
    {
-      if (undertow != null)
-      {
-         undertow.stop();
-      }
+      // TODO 
+      return null;
    }
 
 }

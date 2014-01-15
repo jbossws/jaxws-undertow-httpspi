@@ -19,7 +19,7 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.ws.httpserver_httpspi;
+package org.jboss.ws.undertow_httpspi;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -35,6 +35,8 @@ import javax.xml.ws.Service;
 import javax.xml.ws.soap.MTOMFeature;
 import javax.xml.ws.spi.http.HttpContext;
 
+import org.jboss.ws.undertow_httpspi.UndertowContextFactory;
+import org.jboss.ws.undertow_httpspi.UndertowServer;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -77,7 +79,7 @@ public class EndpointAPITest extends Assert
       String path = "/echo";
       String address = "http://localhost:" + currentPort + contextPath + path;
 
-      HttpContext context = HttpServerContextFactory.createHttpContext(server, contextPath, path);
+      HttpContext context = UndertowContextFactory.createHttpContext(server, contextPath, path);
 
       Endpoint endpoint = Endpoint.create(new EndpointBean());
       endpoint.publish(context); // Use httpserver context for publishing
@@ -97,7 +99,7 @@ public class EndpointAPITest extends Assert
       String path = "/echo";
       for (int i = 0; i < 3; i++)
       {
-         HttpContext ctx = HttpServerContextFactory.createHttpContext(server, contextPath, path);
+         HttpContext ctx = UndertowContextFactory.createHttpContext(server, contextPath, path);
          String address = "http://localhost:" + currentPort + contextPath + path;
 
          Endpoint endpoint = Endpoint.create(new EndpointBean());
@@ -122,7 +124,7 @@ public class EndpointAPITest extends Assert
       for (int i = 0; i < k; i++)
       {
          addresses[i] = "http://localhost:" + currentPort + contextPath + path + i;
-         contexts[i] = HttpServerContextFactory.createHttpContext(server, contextPath, path + i);
+         contexts[i] = UndertowContextFactory.createHttpContext(server, contextPath, path + i);
          endpoints[i] = Endpoint.create(new EndpointBean());
          endpoints[i].publish(contexts[i]);
       }
@@ -149,7 +151,7 @@ public class EndpointAPITest extends Assert
       for (int i = 0; i < k; i++)
       {
          addresses[i] = "http://localhost:" + currentPort + contextPath + i + path;
-         contexts[i] = HttpServerContextFactory.createHttpContext(server, contextPath + i, path);
+         contexts[i] = UndertowContextFactory.createHttpContext(server, contextPath + i, path);
          endpoints[i] = Endpoint.create(new EndpointBean());
          endpoints[i].publish(contexts[i]);
       }

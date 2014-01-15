@@ -19,57 +19,51 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.ws.httpserver_httpspi;
+package org.jboss.ws.undertow_httpspi;
 
+import io.undertow.Undertow;
+import io.undertow.Undertow.Builder;
+import io.undertow.server.handlers.BlockingHandler;
 import io.undertow.server.handlers.PathHandler;
-
-import java.util.Set;
-
-import javax.xml.ws.spi.http.HttpContext;
-import javax.xml.ws.spi.http.HttpHandler;
 
 /**
  * @author <a href="mailto:ema@redhat.com">Jim Ma</a>
  *
  */
-//TODO:Look at HttpHandlerImpl - avoid to create duplicate UndertowHttpContext to publish endpoint
-public class UndertowHttpContext extends HttpContext
+public class UndertowServer
 {
-   private String handlerpath;
+   private Builder builder;
    private PathHandler pathHandler;
-   private String path;
+   private Undertow undertow;
 
-   public UndertowHttpContext(PathHandler pathHandler, String contextPath, String path)
+   public UndertowServer(int port, String host)
    {
-      this.pathHandler = pathHandler;
-      this.path = path;
-      this.handlerpath = contextPath + path;
+      builder = Undertow.builder().addListener(port, host);
+      pathHandler = new PathHandler();
    }
 
-   @Override
-   public void setHandler(HttpHandler handler)
+   public Builder getBuilder()
    {
-      pathHandler.addExactPath(handlerpath, new UndertowHttpHandler(handler));
+      return builder;
    }
 
-   @Override
-   public String getPath()
+   public PathHandler getPathHandler()
    {
-      return this.path;
+      return pathHandler;
    }
 
-   @Override
-   public Object getAttribute(String name)
+   public void start()
    {
-      // TODO 
-      return null;
+      undertow = builder.setHandler(new BlockingHandler(pathHandler)).build();
+      undertow.start();
    }
 
-   @Override
-   public Set<String> getAttributeNames()
+   public void stop()
    {
-      // TODO 
-      return null;
+      if (undertow != null)
+      {
+         undertow.stop();
+      }
    }
 
 }

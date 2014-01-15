@@ -19,7 +19,7 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.ws.httpserver_httpspi;
+package org.jboss.ws.undertow_httpspi;
 
 import java.net.MalformedURLException;
 import java.net.URI;

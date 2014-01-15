@@ -1,6 +1,6 @@
 /*
  * JBoss, Home of Professional Open Source.
- * Copyright 2010, Red Hat Middleware LLC, and individual contributors
+ * Copyright 2014, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
  * distribution for a full listing of individual contributors.
  *
@@ -19,28 +19,29 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.ws.httpserver_httpspi;
+package org.jboss.ws.undertow_httpspi;
 
-import javax.xml.ws.spi.http.HttpContext;
-
-import com.sun.net.httpserver.HttpServer;
+import io.undertow.server.HttpHandler;
+import io.undertow.server.HttpServerExchange;
 
 /**
- * A factory for building JDK6 httpserver' flavor of 
- * 
- * @author alessio.soldano@jboss.com
- * @since 22-Aug-2010
+ * @author <a href="mailto:ema@redhat.com">Jim Ma</a>
  *
  */
-public class HttpServerContextFactory
+public class UndertowHttpHandler implements HttpHandler
 {
-   public static HttpContext createHttpContext(HttpServer server, String contextPath, String path)
+
+   private javax.xml.ws.spi.http.HttpHandler spihandler;
+
+   public UndertowHttpHandler(javax.xml.ws.spi.http.HttpHandler handler)
    {
-      return new HttpContextDelegate(server.createContext(contextPath + path), path);
+      spihandler = handler;
    }
-   
-   public static HttpContext createHttpContext(UndertowServer server, String contextPath, String path)
+
+   @Override
+   public void handleRequest(HttpServerExchange exchange) throws Exception
    {
-     return new UndertowHttpContext(server.getPathHandler(), contextPath, path); 
+      spihandler.handle(new UndertowHttpExchange(exchange));
    }
+
 }

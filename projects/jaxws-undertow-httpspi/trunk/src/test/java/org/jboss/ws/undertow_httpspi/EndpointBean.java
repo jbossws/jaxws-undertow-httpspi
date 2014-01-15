@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.ws.httpserver_httpspi;
+package org.jboss.ws.undertow_httpspi;
 
 import java.io.IOException;
 
@@ -28,7 +28,7 @@ import javax.xml.ws.WebServiceException;
 import javax.xml.ws.soap.MTOM;
 
 @WebService(serviceName = "EndpointService",
-            endpointInterface = "org.jboss.ws.httpserver_httpspi.EndpointInterface",
+            endpointInterface = "org.jboss.ws.undertow_httpspi.EndpointInterface",
             targetNamespace = "http://org.apache.cxf/jaxws/endpoint/")
 @MTOM
 public class EndpointBean implements EndpointInterface {

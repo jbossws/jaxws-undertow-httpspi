@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.ws.httpserver_httpspi;
+package org.jboss.ws.undertow_httpspi;
 
 import javax.activation.DataHandler;
 import javax.xml.bind.annotation.XmlMimeType;

@@ -19,9 +19,11 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.ws.httpserver_httpspi;
+package org.jboss.ws.undertow_httpspi;
 
 import java.net.URI;
+
+import org.jboss.ws.undertow_httpspi.PathUtils;
 
 import junit.framework.TestCase;
 
