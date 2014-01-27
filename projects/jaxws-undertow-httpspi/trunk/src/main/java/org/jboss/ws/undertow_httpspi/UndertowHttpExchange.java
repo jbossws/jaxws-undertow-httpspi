@@ -44,7 +44,7 @@ import javax.xml.ws.spi.http.HttpExchange;
  */
 public class UndertowHttpExchange extends HttpExchange
 {
-   private HttpServerExchange undertowExchange;
+   private final HttpServerExchange undertowExchange;
 
    private UndertowHttpContext context;
 

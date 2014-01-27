@@ -37,8 +37,7 @@ import java.util.Set;
 
 public class UndertowHeaderMap implements Map<String, List<String>>
 {
-
-   private HeaderMap headerMap;
+   private final HeaderMap headerMap;
 
    public UndertowHeaderMap(HeaderMap headerMap) {
       this.headerMap = headerMap;

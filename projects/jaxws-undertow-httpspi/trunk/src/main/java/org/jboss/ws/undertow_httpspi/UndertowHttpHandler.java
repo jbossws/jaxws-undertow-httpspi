@@ -31,7 +31,7 @@ import io.undertow.server.HttpServerExchange;
 public class UndertowHttpHandler implements HttpHandler
 {
 
-   private javax.xml.ws.spi.http.HttpHandler spihandler;
+   private final javax.xml.ws.spi.http.HttpHandler spihandler;
 
    public UndertowHttpHandler(javax.xml.ws.spi.http.HttpHandler handler)
    {
