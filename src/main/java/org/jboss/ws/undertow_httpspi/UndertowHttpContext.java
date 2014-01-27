@@ -35,9 +35,9 @@ import javax.xml.ws.spi.http.HttpHandler;
 //TODO:Look at HttpHandlerImpl - avoid to create duplicate UndertowHttpContext to publish endpoint
 public class UndertowHttpContext extends HttpContext
 {
-   private String handlerpath;
-   private PathHandler pathHandler;
-   private String path;
+   private final String handlerpath;
+   private final PathHandler pathHandler;
+   private final String path;
 
    public UndertowHttpContext(PathHandler pathHandler, String contextPath, String path)
    {

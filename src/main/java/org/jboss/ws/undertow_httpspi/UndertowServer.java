@@ -32,13 +32,13 @@ import io.undertow.server.handlers.PathHandler;
  */
 public class UndertowServer
 {
-   private Builder builder;
-   private PathHandler pathHandler;
+   private final Builder builder;
+   private final PathHandler pathHandler;
    private Undertow undertow;
 
    public UndertowServer(int port, String host)
    {
-      builder = Undertow.builder().addListener(port, host);
+      builder = Undertow.builder().addHttpListener(port, host);
       pathHandler = new PathHandler();
    }
 

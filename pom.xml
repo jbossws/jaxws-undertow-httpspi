@@ -30,7 +30,7 @@
     <junit.version>4.8.1</junit.version>
     <cxf.version>2.7.8</cxf.version>
     <servlet-api.version>1.0.2.Final</servlet-api.version>
-    <io.undertow.version>1.0.0.Beta30</io.undertow.version>
+    <io.undertow.version>1.0.0.Beta33</io.undertow.version>
   </properties>
 
   <!-- Dependencies -->
