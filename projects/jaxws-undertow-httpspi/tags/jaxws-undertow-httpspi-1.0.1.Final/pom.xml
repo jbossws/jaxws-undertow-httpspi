@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>Undertow to JAXWS 2.2 HTTP SPI bridge</name>
+  <groupId>org.jboss.ws.projects</groupId>
+  <artifactId>jaxws-undertow-httpspi</artifactId>
+  <packaging>jar</packaging>
+
+  <version>1.0.1.Final</version>
+
+  <!-- Source Control Management -->
+  <scm>
+    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossws/projects/jaxws-undertow-httpspi/tags/jaxws-undertow-httpspi-1.0.1.Final</connection>
+    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossws/projects/jaxws-undertow-httpspi/tags/jaxws-undertow-httpspi-1.0.1.Final</developerConnection>
+    <url>http://fisheye.jboss.com/viewrep/JBossWS/projects/jaxws-undertow-httpspi/tags/jaxws-undertow-httpspi-1.0.1.Final</url>
+  </scm>
+
+  <!-- Parent -->
+  <parent>
+    <groupId>org.jboss.ws</groupId>
+    <artifactId>jbossws-parent</artifactId>
+    <version>1.0.10.GA</version>
+  </parent>
+  
+  <!-- Properties -->
+  <properties>
+    <jaxws.version>2.0.2.Final</jaxws.version>
+    <junit.version>4.8.1</junit.version>
+    <cxf.version>2.7.13</cxf.version>
+    <servlet-api.version>1.0.2.Final</servlet-api.version>
+    <io.undertow.version>1.0.10.Final</io.undertow.version>
+  </properties>
+
+  <!-- Dependencies -->
+  <dependencies>
+    <dependency>
+       <groupId>org.jboss.spec.javax.xml.ws</groupId>
+       <artifactId>jboss-jaxws-api_2.2_spec</artifactId>
+       <version>${jaxws.version}</version>
+    </dependency> 
+
+    <dependency>
+       <groupId>io.undertow</groupId>
+       <artifactId>undertow-core</artifactId>
+       <version>${io.undertow.version}</version>
+       <exclusions>
+           <exclusion>
+               <groupId>io.undertow</groupId>
+               <artifactId>undertow-build-config</artifactId>
+           </exclusion>
+       </exclusions>
+   </dependency>
+
+  
+    <!-- test dependencies -->
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-frontend-jaxws</artifactId>
+      <version>${cxf.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.spec.javax.servlet</groupId>
+      <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+      <version>${servlet-api.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>create-endorsed-dir</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.jboss.spec.javax.xml.ws</groupId>
+                  <artifactId>jboss-jaxws-api_2.2_spec</artifactId>
+                  <outputDirectory>${basedir}/target/endorsed</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <argLine>-Djava.endorsed.dirs=${basedir}/target/endorsed -Djava.util.logging.config.file=${basedir}/src/test/resources/etc/logging.properties</argLine>
+        </configuration>
+      </plugin> 
+    </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <compilerArguments>
+              <endorseddirs>${basedir}/target/endorsed</endorseddirs>
+            </compilerArguments>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>
