@@ -31,6 +31,11 @@
     <cxf.version>2.7.13</cxf.version>
     <servlet-api.version>1.0.2.Final</servlet-api.version>
     <io.undertow.version>1.0.10.Final</io.undertow.version>
+    <jaxws.api.version>1.0.0.Final</jaxws.api.version>
+    <version.javax.activation>1.2.0</version.javax.activation>
+    <version.org.jboss.spec.javax.annotation.jboss-annotations-api_1.3_spec>1.0.1.Final</version.org.jboss.spec.javax.annotation.jboss-annotations-api_1.3_spec>
+    <version.org.jboss.spec.javax.xml.bind-api_2.3_spec>1.0.1.Final</version.org.jboss.spec.javax.xml.bind-api_2.3_spec>
+     <jsr181.api.version>1.0-MR1</jsr181.api.version>
   </properties>
 
   <!-- licenses -->
@@ -45,8 +50,8 @@
   <dependencies>
     <dependency>
        <groupId>org.jboss.spec.javax.xml.ws</groupId>
-       <artifactId>jboss-jaxws-api_2.2_spec</artifactId>
-       <version>${jaxws.version}</version>
+       <artifactId>jboss-jaxws-api_2.3_spec</artifactId>
+       <version>${jaxws.api.version}</version>
     </dependency> 
 
     <dependency>
@@ -61,7 +66,29 @@
        </exclusions>
    </dependency>
 
-  
+    <dependency>
+      <groupId>javax.activation</groupId>
+      <artifactId>javax.activation-api</artifactId>
+      <version>${version.javax.activation}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jboss.spec.javax.annotation</groupId>
+      <artifactId>jboss-annotations-api_1.3_spec</artifactId>
+      <version>${version.org.jboss.spec.javax.annotation.jboss-annotations-api_1.3_spec}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jboss.spec.javax.xml.bind</groupId>
+      <artifactId>jboss-jaxb-api_2.3_spec</artifactId>
+      <version>${version.org.jboss.spec.javax.xml.bind-api_2.3_spec}</version>
+    </dependency>
+    <dependency>
+       <groupId>javax.jws</groupId>
+       <artifactId>jsr181-api</artifactId>
+       <version>${jsr181.api.version}</version>
+    </dependency>
+
     <!-- test dependencies -->
     <dependency>
       <groupId>org.apache.cxf</groupId>
@@ -99,7 +126,7 @@
               <artifactItems>
                 <artifactItem>
                   <groupId>org.jboss.spec.javax.xml.ws</groupId>
-                  <artifactId>jboss-jaxws-api_2.2_spec</artifactId>
+                  <artifactId>jboss-jaxws-api_2.3_spec</artifactId>
                   <outputDirectory>${basedir}/target/endorsed</outputDirectory>
                 </artifactItem>
               </artifactItems>
