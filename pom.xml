@@ -28,14 +28,15 @@
   <properties>
     <jaxws.version>2.0.2.Final</jaxws.version>
     <junit.version>4.8.1</junit.version>
-    <cxf.version>2.7.13</cxf.version>
+    <cxf.version>3.2.6</cxf.version>
     <servlet-api.version>1.0.2.Final</servlet-api.version>
-    <io.undertow.version>1.0.10.Final</io.undertow.version>
+    <io.undertow.version>2.0.13.Final</io.undertow.version>
     <jaxws.api.version>1.0.0.Final</jaxws.api.version>
     <version.javax.activation>1.2.0</version.javax.activation>
     <version.org.jboss.spec.javax.annotation.jboss-annotations-api_1.3_spec>1.0.1.Final</version.org.jboss.spec.javax.annotation.jboss-annotations-api_1.3_spec>
     <version.org.jboss.spec.javax.xml.bind-api_2.3_spec>1.0.1.Final</version.org.jboss.spec.javax.xml.bind-api_2.3_spec>
-     <jsr181.api.version>1.0-MR1</jsr181.api.version>
+    <jsr181.api.version>1.0-MR1</jsr181.api.version>
+    <javax.mail.version>1.6.2</javax.mail.version>
   </properties>
 
   <!-- licenses -->
@@ -97,6 +98,12 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-transports-http</artifactId>
+      <version>${cxf.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
@@ -106,6 +113,12 @@
       <groupId>org.jboss.spec.javax.servlet</groupId>
       <artifactId>jboss-servlet-api_3.0_spec</artifactId>
       <version>${servlet-api.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>${javax.mail.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
