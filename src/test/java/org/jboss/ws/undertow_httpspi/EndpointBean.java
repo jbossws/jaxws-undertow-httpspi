@@ -18,14 +18,16 @@
  */
 package org.jboss.ws.undertow_httpspi;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
-import javax.activation.DataHandler;
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import javax.jws.WebService;
-import javax.xml.ws.WebServiceException;
-import javax.xml.ws.soap.MTOM;
+import jakarta.activation.DataHandler;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import jakarta.jws.WebService;
+import jakarta.xml.ws.WebServiceException;
+import jakarta.xml.ws.soap.MTOM;
 
 @WebService(serviceName = "EndpointService",
             endpointInterface = "org.jboss.ws.undertow_httpspi.EndpointInterface",
@@ -69,7 +71,10 @@ public class EndpointBean implements EndpointInterface {
             if (!dataHandler.getContentType().equals("text/plain")) {
                 throw new WebServiceException("Wrong content type");
             }
-            if (!dataHandler.getContent().equals("some string")) {
+            InputStream is = (InputStream)dataHandler.getContent();
+            byte[] bArr = is.readAllBytes();
+            String result = new String(bArr);
+            if (!result.equals("some string")) {
                 throw new WebServiceException("Wrong data");
             }
         } catch (IOException e) {

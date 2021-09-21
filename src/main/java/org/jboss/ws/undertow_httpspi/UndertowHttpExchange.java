@@ -35,8 +35,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.xml.ws.spi.http.HttpContext;
-import javax.xml.ws.spi.http.HttpExchange;
+import jakarta.xml.ws.spi.http.HttpContext;
+import jakarta.xml.ws.spi.http.HttpExchange;
 
 /**
  * @author <a href="mailto:ema@redhat.com">Jim Ma</a>
