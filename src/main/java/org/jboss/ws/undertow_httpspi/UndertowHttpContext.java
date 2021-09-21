@@ -25,8 +25,8 @@ import io.undertow.server.handlers.PathHandler;
 
 import java.util.Set;
 
-import javax.xml.ws.spi.http.HttpContext;
-import javax.xml.ws.spi.http.HttpHandler;
+import jakarta.xml.ws.spi.http.HttpContext;
+import jakarta.xml.ws.spi.http.HttpHandler;
 
 /**
  * @author <a href="mailto:ema@redhat.com">Jim Ma</a>

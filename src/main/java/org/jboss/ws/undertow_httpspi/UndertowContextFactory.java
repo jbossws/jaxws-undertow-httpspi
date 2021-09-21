@@ -21,7 +21,7 @@
  */
 package org.jboss.ws.undertow_httpspi;
 
-import javax.xml.ws.spi.http.HttpContext;
+import jakarta.xml.ws.spi.http.HttpContext;
 
 /**
  * A factory for building httpcontext based on undertow 

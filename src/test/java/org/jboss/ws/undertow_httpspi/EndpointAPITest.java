@@ -27,16 +27,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
+import jakarta.activation.DataHandler;
+import jakarta.activation.DataSource;
 import javax.xml.namespace.QName;
-import javax.xml.ws.Endpoint;
-import javax.xml.ws.Service;
-import javax.xml.ws.soap.MTOMFeature;
-import javax.xml.ws.spi.http.HttpContext;
+import jakarta.xml.ws.Endpoint;
+import jakarta.xml.ws.Service;
+import jakarta.xml.ws.soap.MTOMFeature;
+import jakarta.xml.ws.spi.http.HttpContext;
 
-import org.jboss.ws.undertow_httpspi.UndertowContextFactory;
-import org.jboss.ws.undertow_httpspi.UndertowServer;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -110,7 +108,7 @@ public class EndpointAPITest extends Assert
          endpoint.stop();
       }
    }
-   
+
    @Test
    public void testMultipleEndpointsSameContext() throws Exception
    {
@@ -191,7 +189,7 @@ public class EndpointAPITest extends Assert
       }
       catch (Exception e)
       {
-         assertEquals("Ooops", e.getMessage());
+         assertEquals("Ooops", e.getCause().getMessage());
       }
    }
 
@@ -223,7 +221,10 @@ public class EndpointAPITest extends Assert
       DataHandler dh = new DataHandler(ds);
       DHResponse response = port.echoDataHandler(new DHRequest(dh));
       assertNotNull(response);
-      Object content = response.getDataHandler().getContent();
+
+      InputStream is = (InputStream) response.getDataHandler().getContent();
+      byte[] bArr = is.readAllBytes();
+      Object content = new String(bArr);
       assertEquals("Server data", content);
       String contentType = response.getDataHandler().getContentType();
       assertEquals("text/plain", contentType);
