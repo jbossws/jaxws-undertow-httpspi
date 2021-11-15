@@ -49,8 +49,36 @@
        <groupId>jakarta.xml.ws</groupId>
        <artifactId>jakarta.xml.ws-api</artifactId>
        <version>${jaxws.api.version}</version>
-    </dependency> 
+    </dependency>
 
+     <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-core</artifactId>
+        <version>${cxf.version}</version>
+        <classifier>jakarta</classifier>
+        <scope>test</scope>
+     </dependency>
+     <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-databinding-jaxb</artifactId>
+        <version>${cxf.version}</version>
+        <classifier>jakarta</classifier>
+        <scope>test</scope>
+     </dependency>
+     <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-frontend-jaxws</artifactId>
+        <version>${cxf.version}</version>
+        <classifier>jakarta</classifier>
+        <scope>test</scope>
+     </dependency>
+     <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-transports-http</artifactId>
+        <version>${cxf.version}</version>
+        <classifier>jakarta</classifier>
+        <scope>test</scope>
+     </dependency>
     <dependency>
        <groupId>io.undertow</groupId>
        <artifactId>undertow-core</artifactId>
@@ -64,18 +92,6 @@
    </dependency>
     <!-- test dependencies -->
     <dependency>
-      <groupId>org.apache.cxf</groupId>
-      <artifactId>cxf-rt-frontend-jaxws</artifactId>
-      <version>${cxf.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.cxf</groupId>
-      <artifactId>cxf-rt-transports-http</artifactId>
-      <version>${cxf.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
@@ -87,7 +103,6 @@
       <version>${servlet-api.version}</version>
       <scope>test</scope>
     </dependency>
-
   </dependencies>
 
   <repositories>
@@ -106,7 +121,11 @@
         <configuration>
           <argLine> -Djava.util.logging.config.file=${basedir}/src/test/resources/etc/logging.properties</argLine>
         </configuration>
-      </plugin> 
+      </plugin>
+       <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+       </plugin>
     </plugins>
     <pluginManagement>
       <plugins>
