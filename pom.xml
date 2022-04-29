@@ -27,20 +27,17 @@
   
   <!-- Properties -->
   <properties>
-    <jaxws.version>2.0.2.Final</jaxws.version>
     <junit.version>4.8.1</junit.version>
-    <cxf.version>3.2.6</cxf.version>
-    <servlet-api.version>1.0.2.Final</servlet-api.version>
-    <io.undertow.version>2.0.13.Final</io.undertow.version>
-    <jaxws.api.version>1.0.0.Final</jaxws.api.version>
-    <version.javax.activation>1.2.0</version.javax.activation>
-    <version.org.jboss.spec.javax.annotation.jboss-annotations-api_1.3_spec>1.0.1.Final</version.org.jboss.spec.javax.annotation.jboss-annotations-api_1.3_spec>
-    <version.org.jboss.spec.javax.xml.bind-api_2.3_spec>1.0.1.Final</version.org.jboss.spec.javax.xml.bind-api_2.3_spec>
-    <jsr181.api.version>1.0-MR1</jsr181.api.version>
-    <javax.mail.version>1.6.2</javax.mail.version>
-     <jaxb-api.version>2.3.0</jaxb-api.version>
-     <version.saaj-impl>1.3.16-jbossorg-1</version.saaj-impl>
-     <version.javax.xml.soap-api>1.4.0</version.javax.xml.soap-api>
+    <cxf.version>4.0.0-SNAPSHOT</cxf.version>
+    <servlet-api.version>5.0.0</servlet-api.version>
+    <io.undertow.version>2.2.17.Final</io.undertow.version>
+    <jaxws.api.version>3.0.1</jaxws.api.version>
+    <version.jakarta.activation>2.1.0</version.jakarta.activation>
+    <version.com.sun.activation>2.0.1</version.com.sun.activation>
+    <jakarta.mail.version>2.0.1</jakarta.mail.version>
+    <jaxb-api.version>3.0.2</jaxb-api.version>
+    <version.saaj-impl>2.0.1</version.saaj-impl>
+     <!-- <version.javax.xml.soap-api>1.4.0</version.javax.xml.soap-api> -->
   </properties>
 
   <!-- licenses -->
@@ -54,8 +51,8 @@
   <!-- Dependencies -->
   <dependencies>
     <dependency>
-       <groupId>org.jboss.spec.javax.xml.ws</groupId>
-       <artifactId>jboss-jaxws-api_2.3_spec</artifactId>
+       <groupId>jakarta.xml.ws</groupId>
+       <artifactId>jakarta.xml.ws-api</artifactId>
        <version>${jaxws.api.version}</version>
     </dependency> 
 
@@ -72,15 +69,9 @@
    </dependency>
 
     <dependency>
-      <groupId>javax.activation</groupId>
-      <artifactId>javax.activation-api</artifactId>
-      <version>${version.javax.activation}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.spec.javax.annotation</groupId>
-      <artifactId>jboss-annotations-api_1.3_spec</artifactId>
-      <version>${version.org.jboss.spec.javax.annotation.jboss-annotations-api_1.3_spec}</version>
+      <groupId>com.sun.activation</groupId>
+      <artifactId>jakarta.activation</artifactId>
+      <version>${version.com.sun.activation}</version>
     </dependency>
 
      <dependency>
@@ -89,31 +80,10 @@
         <version>${version.saaj-impl}</version>
      </dependency>
      <dependency>
-        <groupId>javax.xml.soap</groupId>
-        <artifactId>javax.xml.soap-api</artifactId>
-        <version>${version.javax.xml.soap-api}</version>
-     </dependency>
-     <dependency>
-        <groupId>javax.xml.bind</groupId>
-        <artifactId>jaxb-api</artifactId>
-        <version>${jaxb-api.version}</version>
-     </dependency>
-     <dependency>
         <groupId>org.glassfish.jaxb</groupId>
         <artifactId>jaxb-runtime</artifactId>
         <version>${jaxb-api.version}</version>
      </dependency>
-
-    <dependency>
-      <groupId>org.jboss.spec.javax.xml.bind</groupId>
-      <artifactId>jboss-jaxb-api_2.3_spec</artifactId>
-      <version>${version.org.jboss.spec.javax.xml.bind-api_2.3_spec}</version>
-    </dependency>
-    <dependency>
-       <groupId>javax.jws</groupId>
-       <artifactId>jsr181-api</artifactId>
-       <version>${jsr181.api.version}</version>
-    </dependency>
 
     <!-- test dependencies -->
     <dependency>
@@ -135,18 +105,26 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.jboss.spec.javax.servlet</groupId>
-      <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
       <version>${servlet-api.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.sun.mail</groupId>
-      <artifactId>javax.mail</artifactId>
-      <version>${javax.mail.version}</version>
+      <artifactId>jakarta.mail</artifactId>
+      <version>${jakarta.mail.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <repositories>
+        <repository>
+            <id>jboss</id>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+        </repository>
+  </repositories>
+
 
   <build>
     <plugins>
