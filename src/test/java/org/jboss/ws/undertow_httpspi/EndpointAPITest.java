@@ -222,9 +222,7 @@ public class EndpointAPITest extends Assert
       DHResponse response = port.echoDataHandler(new DHRequest(dh));
       assertNotNull(response);
 
-      InputStream is = (InputStream) response.getDataHandler().getContent();
-      byte[] bArr = is.readAllBytes();
-      Object content = new String(bArr);
+      Object content = response.getDataHandler().getContent();;
       assertEquals("Server data", content);
       String contentType = response.getDataHandler().getContentType();
       assertEquals("text/plain", contentType);
