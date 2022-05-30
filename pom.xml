@@ -28,7 +28,7 @@
   <!-- Properties -->
   <properties>
     <junit.version>4.8.1</junit.version>
-    <cxf.version>4.0.0-SNAPSHOT</cxf.version>
+    <cxf.version>3.5.2-jbossorg-1</cxf.version>
     <servlet-api.version>5.0.0</servlet-api.version>
     <io.undertow.version>2.2.17.Final</io.undertow.version>
     <jaxws.api.version>3.0.1</jaxws.api.version>
