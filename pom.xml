@@ -22,22 +22,16 @@
   <parent>
     <groupId>org.jboss.ws</groupId>
     <artifactId>jbossws-parent</artifactId>
-    <version>1.0.10.GA</version>
+    <version>1.4.4.Final</version>
   </parent>
   
   <!-- Properties -->
   <properties>
-    <junit.version>4.8.1</junit.version>
-    <cxf.version>3.5.2-jbossorg-1</cxf.version>
+    <junit.version>4.12</junit.version>
+    <cxf.version>3.5.2-jbossorg-2</cxf.version>
     <servlet-api.version>5.0.0</servlet-api.version>
-    <io.undertow.version>2.2.17.Final</io.undertow.version>
+    <io.undertow.version>2.2.18.Final</io.undertow.version>
     <jaxws.api.version>3.0.1</jaxws.api.version>
-    <version.jakarta.activation>2.1.0</version.jakarta.activation>
-    <version.com.sun.activation>2.0.1</version.com.sun.activation>
-    <jakarta.mail.version>2.0.1</jakarta.mail.version>
-    <jaxb-api.version>3.0.2</jaxb-api.version>
-    <version.saaj-impl>2.0.1</version.saaj-impl>
-     <!-- <version.javax.xml.soap-api>1.4.0</version.javax.xml.soap-api> -->
   </properties>
 
   <!-- licenses -->
@@ -67,24 +61,6 @@
            </exclusion>
        </exclusions>
    </dependency>
-
-    <dependency>
-      <groupId>com.sun.activation</groupId>
-      <artifactId>jakarta.activation</artifactId>
-      <version>${version.com.sun.activation}</version>
-    </dependency>
-
-     <dependency>
-        <groupId>com.sun.xml.messaging.saaj</groupId>
-        <artifactId>saaj-impl</artifactId>
-        <version>${version.saaj-impl}</version>
-     </dependency>
-     <dependency>
-        <groupId>org.glassfish.jaxb</groupId>
-        <artifactId>jaxb-runtime</artifactId>
-        <version>${jaxb-api.version}</version>
-     </dependency>
-
     <!-- test dependencies -->
     <dependency>
       <groupId>org.apache.cxf</groupId>
@@ -110,12 +86,7 @@
       <version>${servlet-api.version}</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>com.sun.mail</groupId>
-      <artifactId>jakarta.mail</artifactId>
-      <version>${jakarta.mail.version}</version>
-      <scope>test</scope>
-    </dependency>
+
   </dependencies>
 
   <repositories>
