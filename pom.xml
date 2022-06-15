@@ -13,9 +13,10 @@
 
   <!-- Source Control Management -->
   <scm>
-    <connection>scm:git:git://github.com/jbossws/jaxws-undertow-httpspi.git</connection>
-    <developerConnection>scm:git:git@github.com:jbossws/jaxws-undertow-httpspi.git</developerConnection>
-    <url>https://github.com/jbossws/jaxws-undertow-httpspi/tree/master/</url>
+    <connection>scm:git:https://github.com/jbossws/jaxws-undertow-httpspi.git</connection>
+    <developerConnection>scm:git:https://github.com/jbossws/jaxws-undertow-httpspi.git</developerConnection>
+    <url>https://github.com/jbossws/jaxws-undertow-httpspi</url>
+    <tag>HEAD</tag>
   </scm>
 
   <!-- Parent -->
