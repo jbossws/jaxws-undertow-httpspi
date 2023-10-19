@@ -23,15 +23,15 @@
   <parent>
     <groupId>org.jboss.ws</groupId>
     <artifactId>jbossws-parent</artifactId>
-    <version>1.4.4.Final</version>
+    <version>2.0.0.Final</version>
   </parent>
   
   <!-- Properties -->
   <properties>
-    <junit.version>4.12</junit.version>
-    <cxf.version>3.5.2-jbossorg-2</cxf.version>
+    <junit.version>4.13.2</junit.version>
+    <cxf.version>4.0.0</cxf.version>
     <servlet-api.version>5.0.0</servlet-api.version>
-    <io.undertow.version>2.2.18.Final</io.undertow.version>
+    <io.undertow.version>2.2.28.Final</io.undertow.version>
     <jaxws.api.version>3.0.1</jaxws.api.version>
   </properties>
 
