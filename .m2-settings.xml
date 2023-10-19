@@ -16,7 +16,7 @@
         <repository>
           <id>jboss-public-repository-group</id>
           <name>JBoss Public Maven Repository Group</name>
-          <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+          <url>https://repository.jboss.org/nexus/content/groups/public/</url>
           <layout>default</layout>
           <releases>
             <enabled>true</enabled>
@@ -31,7 +31,7 @@
         <repository>
           <id>specific central</id>
           <name>specific Central repository proxy</name>
-          <url>http://repo1.maven.org/maven2/</url>
+          <url>https://repo1.maven.org/maven2/</url>
           <layout>default</layout>
           <releases>
             <enabled>true</enabled>
@@ -41,35 +41,25 @@
             <updatePolicy>never</updatePolicy>
           </snapshots>
         </repository>
+
+        <repository>
+            <id>apache.snapshots</id>
+            <url>https://repository.apache.org/snapshots/</url>
+            <name>Apache Snapshot Repo</name>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
       </repositories>
 
       <pluginRepositories>
         <pluginRepository>
-          <id>central</id>
-          <url>http://central</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-          <id>central-maven2</id>
-          <name>Central maven2 repository proxy</name>
-          <url>http://central.maven.org/maven2</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
-          </snapshots>
-        </pluginRepository>
-        <pluginRepository>
           <id>jboss-public-repository-group</id>
           <name>JBoss Public Maven Repository Group</name>
-          <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+          <url>https://repository.jboss.org/nexus/content/groups/public/</url>
           <layout>default</layout>
           <releases>
             <enabled>true</enabled>
