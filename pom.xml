@@ -9,7 +9,7 @@
   <packaging>jar</packaging>
    <description>Undertow to JAXWS 2.2 HTTP SPI bridge jakarta</description>
 
-  <version>2.0.1.Final-SNAPSHOT</version>
+  <version>3.0.0.Final-SNAPSHOT</version>
 
   <!-- Source Control Management -->
   <scm>
