@@ -34,7 +34,7 @@
     <nexus.staging.tag>jaxws-undertow-httpspi-${project.version}</nexus.staging.tag>
     <!-- Dependency versions -->
     <junit.version>4.13.2</junit.version>
-    <cxf.version>4.0.0</cxf.version>
+    <cxf.version>4.1.4</cxf.version>
     <servlet-api.version>5.0.0</servlet-api.version>
     <io.undertow.version>2.2.28.Final</io.undertow.version>
     <jaxws.api.version>3.0.1</jaxws.api.version>
