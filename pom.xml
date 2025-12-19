@@ -3,31 +3,36 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <name>Undertow to JAXWS 2.2 HTTP SPI bridge</name>
   <groupId>org.jboss.ws.projects</groupId>
   <artifactId>jaxws-undertow-httpspi</artifactId>
   <packaging>jar</packaging>
-   <description>Undertow to JAXWS 2.2 HTTP SPI bridge jakarta</description>
+
+  <name>JBoss Web Services - Undertow to JAXWS 2.2 HTTP SPI bridge</name>
+  <description>JBoss Web Services - Undertow to JAXWS 2.2 HTTP SPI bridge Jakarta Version</description>
+  <url>https://github.com/jbossws/jaxws-undertow-httpspi</url>
 
   <version>3.0.0.Final-SNAPSHOT</version>
+
+  <!-- Parent -->
+  <parent>
+    <groupId>org.jboss.ws</groupId>
+    <artifactId>jbossws-parent</artifactId>
+    <version>2.1.1.Final</version>
+  </parent>
 
   <!-- Source Control Management -->
   <scm>
     <connection>scm:git:https://github.com/jbossws/jaxws-undertow-httpspi.git</connection>
     <developerConnection>scm:git:https://github.com/jbossws/jaxws-undertow-httpspi.git</developerConnection>
     <url>https://github.com/jbossws/jaxws-undertow-httpspi</url>
-    <tag>HEAD</tag>
+    <tag>${nexus.staging.tag}</tag>
   </scm>
-
-  <!-- Parent -->
-  <parent>
-    <groupId>org.jboss.ws</groupId>
-    <artifactId>jbossws-parent</artifactId>
-    <version>2.0.0.Final</version>
-  </parent>
   
   <!-- Properties -->
   <properties>
+    <!-- Repository Deployment Settings -->
+    <nexus.staging.tag>jaxws-undertow-httpspi-${project.version}</nexus.staging.tag>
+    <!-- Dependency versions -->
     <junit.version>4.13.2</junit.version>
     <cxf.version>4.0.0</cxf.version>
     <servlet-api.version>5.0.0</servlet-api.version>
