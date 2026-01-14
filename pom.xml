@@ -36,7 +36,7 @@
     <junit.version>4.13.2</junit.version>
     <cxf.version>4.0.0</cxf.version>
     <servlet-api.version>5.0.0</servlet-api.version>
-    <io.undertow.version>2.2.28.Final</io.undertow.version>
+    <io.undertow.version>2.3.21.Final</io.undertow.version>
     <jaxws.api.version>3.0.1</jaxws.api.version>
   </properties>
 
