@@ -38,6 +38,8 @@
     <servlet-api.version>6.1.0</servlet-api.version>
     <io.undertow.version>2.4.1.Final</io.undertow.version>
     <jaxws.api.version>4.0.3</jaxws.api.version>
+    <!-- Additional properties -->
+    <maven.javadoc.skip>false</maven.javadoc.skip>
   </properties>
 
   <!-- licenses -->
@@ -103,7 +105,19 @@
         <configuration>
           <argLine> -Djava.util.logging.config.file=${basedir}/src/test/resources/etc/logging.properties</argLine>
         </configuration>
-      </plugin> 
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+          <executions>
+            <execution>
+              <phase>package</phase>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+            </execution>
+          </executions>
+      </plugin>
     </plugins>
     <pluginManagement>
       <plugins>
