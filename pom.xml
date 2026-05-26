@@ -11,7 +11,7 @@
   <description>JBoss Web Services - Undertow to Jakarta XML Web Services HTTP SPI bridge Jakarta Version</description>
   <url>https://github.com/jbossws/jaxws-undertow-httpspi</url>
 
-  <version>3.0.0.Beta2-SNAPSHOT</version>
+  <version>3.0.0.Final</version>
 
   <!-- Parent -->
   <parent>
@@ -25,7 +25,7 @@
     <connection>scm:git:https://github.com/jbossws/jaxws-undertow-httpspi.git</connection>
     <developerConnection>scm:git:https://github.com/jbossws/jaxws-undertow-httpspi.git</developerConnection>
     <url>https://github.com/jbossws/jaxws-undertow-httpspi</url>
-    <tag>${nexus.staging.tag}</tag>
+    <tag>jaxws-undertow-httpspi-3.0.0.Final</tag>
   </scm>
   
   <!-- Properties -->
